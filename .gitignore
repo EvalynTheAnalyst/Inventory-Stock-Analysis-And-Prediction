@@ -1,0 +1,7 @@
+smenv/
+venv/
+.env
+__pycache__/
+*.pyc
+*.joblib
+*.dll
