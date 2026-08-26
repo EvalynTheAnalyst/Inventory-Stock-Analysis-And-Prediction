@@ -24,6 +24,9 @@ Exploratory analysis using a structured 5W1H framework (who, what, when, where, 
 Feature engineering (rolling demand averages, shrinkage rates, days of stock remaining)
 Model development, four classification models (Logistic Regression, Random Forest, XGBoost, LightGBM) trained and compared, with XGBoost selected as the best performer based on ROC-AUC (0.9993 on the held out test set)
 
+#### Upload your dataset here to analyze and predict potential stockouts.
+ https://inventory-stock-analysis-and-prediction-dameode9q3kkixocrgfe8d.streamlit.app/
+
 
 ### Project Structure
 ```
