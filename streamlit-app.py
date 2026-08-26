@@ -60,10 +60,23 @@ if uploaded_file is not None:
 
                 def highlight_risk(row):
                     color = RISK_COLORS[row["prediction"]]
-                    return [f"background-color: {color}"] * len(row)
+                    return [f"background-color: {color}; color: black;"] * len(row)
+
+
+                styled_results = (
+                    results.style
+                    .apply(highlight_risk, axis=1)
+                    .set_properties(
+                        **{
+                            "color": "black",
+                            "background-color": "white",
+                            "border-color": "#cccccc"
+                        }
+                    )
+                )
 
                 st.dataframe(
-                    results.style.apply(highlight_risk, axis=1),
+                    styled_results,
                     use_container_width=True
                 )
         else:
