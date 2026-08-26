@@ -36,7 +36,7 @@ if uploaded_file is not None:
             if "error" in data:
                 st.error(data["error"])
             else:
-                results = pd.DataFrame(data)
+                results = pd.DataFrame(data["result"])
                 if "prediction" not in results.columns:
                     st.error("The API didn't return predictions.")
                     st.json(data)
