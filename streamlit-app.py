@@ -26,6 +26,7 @@ uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
 if uploaded_file is not None:
     if st.button("Run Prediction", type="primary"):
+        uploaded_file.seek(0)
         with st.spinner("Running predictions..."):
             response = requests.post(API_URL, files={"file": uploaded_file})
 
@@ -36,6 +37,11 @@ if uploaded_file is not None:
                 st.error(data["error"])
             else:
                 results = pd.DataFrame(data)
+                if "prediction" not in results.columns:
+                    st.error("The API didn't return predictions.")
+                    st.json(data)
+                    st.stop()
+
                 results["prediction"] = results["prediction"].astype(int)
                 results["risk_label"] = results["prediction"].map(RISK_LABELS)
 
