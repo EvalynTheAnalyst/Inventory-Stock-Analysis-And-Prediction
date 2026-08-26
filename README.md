@@ -66,8 +66,10 @@ inventory-stock-analysis/
 │   └── Inventory_Analysis_Presentation.pptx
 │
 └── deployment
-    └── app.py                # 5W1H framework, reorder formula, model selection rationale
+    └── app.py            # 5W1H framework, reorder formula, model selection rationale
+    ├── FastApi and Docker
     ├── render and GitHub
+    ├── streamlit
 
 ```
 
