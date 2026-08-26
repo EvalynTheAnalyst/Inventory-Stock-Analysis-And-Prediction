@@ -36,15 +36,15 @@ if uploaded_file is not None:
                 st.error(data["error"])
             else:
                 results = pd.DataFrame(data)
-                results["prediction"] = results["prediction"].astype(int)
-                results["risk_label"] = results["prediction"].map(RISK_LABELS)
+                results["predictions"] = results["predictions"].astype(int)
+                results["risk_label"] = results["predictions"].map(RISK_LABELS)
 
                 st.success("Prediction complete!")
 
                 total = len(results)
-                safe = (results["prediction"] == 0).sum()
-                caution = (results["prediction"] == 1).sum()
-                critical = (results["prediction"] == 2).sum()
+                safe = (results["predictions"] == 0).sum()
+                caution = (results["predictions"] == 1).sum()
+                critical = (results["predictions"] == 2).sum()
 
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("Total Items", total)
